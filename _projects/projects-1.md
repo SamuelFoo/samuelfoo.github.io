@@ -1,7 +1,10 @@
 ---
 title: "RoboSub 2025"
 excerpt: >
-  <img src="/images/projects/robosub/sim.jpg" style="width: auto; height: 200px;"/>
+  <div class="media-row">
+    <img src="/images/projects/robosub/torpedo_preview.gif" style="width: auto; height: 200px;"/>
+    <img src="/images/projects/robosub/trash_preview.gif" style="width: auto; height: 200px;"/>
+  </div>
 collection: projects
 ---
 
@@ -23,6 +26,8 @@ collection: projects
 **Main Challenge:** Detection of the bin image is challenging in harsh lighting.
 
 **Our Approach:** From far away, detect the bin image using YOLO as the images of the animals aren't clear enough for feature matching to work. However, pose estimation of the non-square quadrilateral leaves a 180 deg ambiguity. We disambiguate by counting the number of point correspondences with the un-rotated and rotated templates. Then, Perspective-n-Point (PnP) on the point correspondences gives us the 6-DoF poses of the centers of the animals.
+
+<img src="/images/projects/robosub/bin_transforms.png" />
 
 ## Slalom
 
