@@ -1,0 +1,12 @@
+.media-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap; 
+
+  img {
+    max-height: 260px;
+    width: auto;
+    height: auto;
+  }
+}

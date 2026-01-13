@@ -7,6 +7,23 @@ collection: projects
 
 [RoboSub](https://robosub.org/programs/2025/) is an international competition that invites participants to tackle simplified versions of challenges facing the underwater maritime industry. These challenges may include oceanographic exploration and mapping, detection and manipulation of objects, and pipeline identification and tracking.
 
+## Bin
+
+<div class="media-row">
+  <img src="/images/projects/robosub/bin_success_yolo_cropped.gif" />
+  <img src="/images/projects/robosub/bin_correcting_template_cropped.gif" />
+</div>
+<br>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Tc7IWZhyndc?si=RzgBFvt_XzempjSB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br>
+
+**Task:** The AUV is to drop two markers on the half of the bin corresponding to a specified animal.
+
+**Main Challenge:** Detection of the bin image is challenging in harsh lighting.
+
+**Our Approach:** From far away, detect the bin image using YOLO as the images of the animals aren't clear enough for feature matching to work. However, pose estimation of the non-square quadrilateral leaves a 180 deg ambiguity. We disambiguate by counting the number of point correspondences with the un-rotated and rotated templates. Then, Perspective-n-Point (PnP) on the point correspondences gives us the 6-DoF poses of the centers of the animals.
+
 ## Slalom
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s_MKozIs_Lc?si=aK1NtuUlS-kSPd-C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -27,7 +44,7 @@ collection: projects
 
 **Main Challenge:** Due to limitations on the firing power of our "torpedoes" (spring-propelled projectiles), we often fire from positions where the target is partially occluded. This makes it challenging to locate the holes.
 
-**Our Approach:** We use feature matching to generate point correspondences for the Perspective-n-Point algorithm. This allows us to determine both the location of the holes and the animal they represent while being robust to occlusions. Notably, this approach doesn't require prior training data and is generalizable to any target (most teams require object detection models to detect the shark, fish and the holes, ours doesn't). Furthermore, by detecting the 6-DoF pose of the board (with a precision of ~3 cm and ~1 deg), we are able to fire in a direction orthogonal to the plane containing the holes, maximizing our chances of success. (Fun fact: we used the orientation of the torpedo target to correct for IMU drift during our finals run.)
+**Our Approach:** We use feature matching to generate point correspondences for PnP. This allows us to determine both the location of the holes and the animal they represent while being robust to occlusions. Notably, this approach doesn't require prior training data and is generalizable to any target (most teams require object detection models to detect the shark, fish and the holes, ours doesn't). Furthermore, by detecting the 6-DoF pose of the board (with a precision of ~3 cm and ~1 deg), we are able to fire in a direction orthogonal to the plane containing the holes, maximizing our chances of success. (Fun fact: we used the orientation of the torpedo target to correct for IMU drift during our finals run.)
 
 ## Ocean Cleanup
 
