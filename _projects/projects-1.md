@@ -1,7 +1,7 @@
 ---
 title: "RoboSub 2025"
 excerpt: >
-  <div class="media-row">
+  <div class="media-row--sm">
     <img src="/images/projects/robosub/torpedo_preview.gif" style="width: auto; height: 200px;"/>
     <img src="/images/projects/robosub/trash_preview.gif" style="width: auto; height: 200px;"/>
   </div>
